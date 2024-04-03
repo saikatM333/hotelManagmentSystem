@@ -38,22 +38,24 @@ namespace HotelManagment
 
             int daysDifference = (difference.Days);
             int max = 999999999;
-            foreach(Dictionary<string , int > hotel in hotels.Values)
+            string name = "";
+            foreach (KeyValuePair<string , Dictionary<string , int > > hotel in hotels)
             {
-                foreach (KeyValuePair<string, int> pair in hotel)
+                foreach (KeyValuePair<string, int> pair in hotel.Value)
                 {
                     if (pair.Key.Equals("regularRate"))
                     {
                         if (max > pair.Value * daysDifference)
                         {
                             max = pair.Value * daysDifference;
+                             name  = hotel.Key;
                             
                         }
                     }
                 }
 
             }
-            Console.WriteLine("the chepest price is " + max);
+            Console.WriteLine("the chepest price is of hotel {0} that rate is {1} " ,name, max);
 
 
         }

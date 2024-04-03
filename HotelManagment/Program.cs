@@ -13,7 +13,7 @@ public  class Program
 
         while(true){
 
-            Console.WriteLine("enter  0 for adding the hotel\nenter 1 for finding the cheap hotel rates ");
+            Console.WriteLine("enter  0 for adding the hotel\nenter 1 for finding the cheap hotel rates\n enter 2 for finding the chepeast best rated hotel ");
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -29,6 +29,13 @@ public  class Program
                     Console.WriteLine("enter the last Date for booking ");
                     DateTime endingDate = Convert.ToDateTime(Console.ReadLine());
                     hotelCollections.findtheCheapestRates(startingDate, endingDate); break;
+
+                    case 2:
+                    Console.WriteLine("enter the first Date for booking ");
+                    DateTime startingDate1 = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("enter the last Date for booking ");
+                    DateTime endingDate1 = Convert.ToDateTime(Console.ReadLine());
+                    hotelCollections.findtheCheapestBestRatedHotel( startingDate1, endingDate1); break;
             }
         }
 

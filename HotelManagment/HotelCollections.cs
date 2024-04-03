@@ -31,10 +31,18 @@ namespace HotelManagment
             Console.WriteLine("provide the rating for hotel");
             int ratings = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine("provide the rewarded weekday rate for the hotel ");
+            int rewardedWeekDayRate = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("provide the rewarded weekend  rate for the hotel ");
+            int rewardedWeekEndRate = Convert.ToInt32(Console.ReadLine());
 
 
 
-            hotels.Add(HotelName, new Hotel(HotelName, ratings, regularWeekDayRate, regularWeekEndRate).hotelDetails);
+
+
+
+            hotels.Add(HotelName, new Hotel(HotelName, ratings, regularWeekDayRate, regularWeekEndRate, rewardedWeekDayRate, rewardedWeekEndRate).hotelDetails);
 
 
         }

@@ -13,7 +13,7 @@ public  class Program
 
         while(true){
 
-            Console.WriteLine("enter  0 for adding the hotel");
+            Console.WriteLine("enter  0 for adding the hotel\nenter 1 for finding the cheap hotel rates ");
 
             int choice = Convert.ToInt32(Console.ReadLine());
 

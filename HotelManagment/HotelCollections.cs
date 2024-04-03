@@ -35,34 +35,59 @@ namespace HotelManagment
                 
         }
 
-        public void findtheCheapestRates( DateTime startDate, DateTime endDate)
-        {
-            TimeSpan difference = endDate- startDate ;
+        public void findtheCheapestRates(DateTime startDate, DateTime endDate)
 
-            int daysDifference = (difference.Days);
-            int max = 999999999;
-            string name = "";
-            foreach (KeyValuePair<string , Dictionary<string , int > > hotel in hotels)
+        {
+            TimeSpan difference = endDate - startDate;
+            int daysDifference = difference.Days;
+
+            int countWeekend = 0;
+            List<string> hotelname = new List<string>();
+
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1)) // Fixed loop
             {
+                if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    countWeekend++;
+                }
+            }
+
+            int countWeekDay = daysDifference - countWeekend;
+
+            int min = int.MaxValue;
+            string cheapestHotel = "";
+
+            foreach (KeyValuePair<string, Dictionary<string, int>> hotel in hotels)
+            {
+                int value = 0;
                 foreach (KeyValuePair<string, int> pair in hotel.Value)
                 {
-                    if (pair.Key.Equals("regularRate"))
+                    if (pair.Key.Equals("regularWeekDayRate"))
                     {
-                        if (max > pair.Value * daysDifference)
-                        {
-                            max = pair.Value * daysDifference;
-                             name  = hotel.Key;
-                            
-                        }
+                        value += pair.Value * countWeekDay;
+                    }
+
+                    if (pair.Key.Equals("regularWeekEndRate"))
+                    {
+                        value += pair.Value * countWeekend;
                     }
                 }
 
+                if (min >= value)
+                {
+                    min = value;
+                    //cheapestHotel = hotel.Key;
+                    hotelname.Add(hotel.Key);
+                }
             }
-            Console.WriteLine("the chepest price is of hotel {0} that rate is {1} " ,name, max);
+            foreach (var hotel in hotelname)
+            {
+                Console.Write(hotel+", ");
+            }
 
-
+            Console.WriteLine("the minimum rate is {0}", min);
         }
 
-       
+
     }
 }

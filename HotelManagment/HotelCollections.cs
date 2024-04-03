@@ -28,9 +28,13 @@ namespace HotelManagment
             Console.WriteLine("provide the regular week end rate for the hotel ");
             int regularWeekEndRate = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine("provide the rating for hotel");
+            int ratings = Convert.ToInt32(Console.ReadLine());
 
 
-            hotels.Add(HotelName, new  Hotel( HotelName,  regularWeekDayRate, regularWeekEndRate).hotelDetails);
+
+
+            hotels.Add(HotelName, new  Hotel( HotelName, ratings ,  regularWeekDayRate, regularWeekEndRate).hotelDetails);
                
                 
         }

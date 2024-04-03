@@ -143,9 +143,57 @@ namespace HotelManagment
 
 
         }
-        
+
+        public void findthebestRatedHotel(DateTime bookingDate, DateTime checkoutDate)
+        {
+            TimeSpan difference = checkoutDate - bookingDate;
+            int daysDifference = difference.Days;
+
+            int countWeekend = 0;
+            List<string> hotelname = new List<string>();
+
+            for (DateTime date = bookingDate; date <= checkoutDate; date = date.AddDays(1)) // Fixed loop
+            {
+                if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    countWeekend++;
+                }
+            }
+
+            int countWeekDay = daysDifference - countWeekend;
+
+
+            var sortedNestedDictionary = hotels.OrderByDescending(kv => kv.Value["ratings"]);
+            var maxratedHotel = sortedNestedDictionary.First();
+            int maxrating = maxratedHotel.Value["ratings"];
+            Dictionary<string, int> listofMaxratedHotel = new Dictionary<string, int>();
+
+            foreach (var kv in sortedNestedDictionary)
+            {
+                int value = 0;
+                if (maxrating == kv.Value["ratings"])
+                {
+                    value = kv.Value["regularWeekDayRate"] * countWeekDay + kv.Value["regularWeekEndRate"] * countWeekend;
+                    listofMaxratedHotel.Add(kv.Key, value);
+                }
+
+            }
+
+
+
+            foreach (var Pair in listofMaxratedHotel)
+            {
+                string Hotelname = Pair.Key;
+                int value = Pair.Value;
+
+                Console.WriteLine($"Hotel Name : {Hotelname}, TotalRate: {value}");
+            }
+
+        }
+
+
     }
 
 
-        
+
 }

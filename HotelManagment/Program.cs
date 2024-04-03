@@ -36,6 +36,12 @@ public  class Program
                     Console.WriteLine("enter the last Date for booking ");
                     DateTime endingDate1 = Convert.ToDateTime(Console.ReadLine());
                     hotelCollections.findtheCheapestBestRatedHotel( startingDate1, endingDate1); break;
+                    case 3:
+                    Console.WriteLine("enter the first Date for booking ");
+                    DateTime startingDate2 = Convert.ToDateTime(Console.ReadLine());
+                    Console.WriteLine("enter the last Date for booking ");
+                    DateTime endingDate2 = Convert.ToDateTime(Console.ReadLine());
+                    hotelCollections.findthebestRatedHotel(startingDate2 , endingDate2 ); break;
             }
         }
 

@@ -22,12 +22,15 @@ namespace HotelManagment
 
                 Console.WriteLine("add the hotel name in the hotel reservation system to add the hotel");
                 string HotelName = Console.ReadLine();
-           
-                Console.WriteLine("provide the regular rate for the hotel ");
-                int regularrate = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("provide the regular WeekDay rates for the hotel ");
+            int regularWeekDayRate = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("provide the regular week end rate for the hotel ");
+            int regularWeekEndRate = Convert.ToInt32(Console.ReadLine());
 
 
-                hotels.Add(HotelName, new  Hotel( HotelName,  regularrate).hotelDetails);
+
+            hotels.Add(HotelName, new  Hotel( HotelName,  regularWeekDayRate, regularWeekEndRate).hotelDetails);
                
                 
         }

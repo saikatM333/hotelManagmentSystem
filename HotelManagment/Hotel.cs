@@ -15,9 +15,10 @@ namespace HotelManagment
         {
             
         };
-        public Hotel( string hotelname , int regularRate ) {
+        public Hotel( string hotelname , int regularWeekDayRate , int regularWeekEndRate ) {
 
-            hotelDetails.Add("regularRate" , regularRate);
+            hotelDetails.Add("regularWeekDayRate" , regularWeekEndRate);
+            hotelDetails.Add("regularWeekEndRate" , regularWeekEndRate );
            }
 
 

@@ -1,0 +1,15 @@
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.AssemblyInfoInputs.cache
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.AssemblyInfo.cs
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.csproj.CoreCompileInputs.cache
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.sourcelink.json
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\bin\Debug\net8.0\HotelManagment.exe
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\bin\Debug\net8.0\HotelManagment.deps.json
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\bin\Debug\net8.0\HotelManagment.runtimeconfig.json
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\bin\Debug\net8.0\HotelManagment.dll
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\bin\Debug\net8.0\HotelManagment.pdb
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.dll
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\refint\HotelManagment.dll
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.pdb
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\HotelManagment.genruntimeconfig.cache
+C:\Users\Saikat Mondal\source\repos\HotelManagment\HotelManagment\obj\Debug\net8.0\ref\HotelManagment.dll

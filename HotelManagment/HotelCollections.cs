@@ -98,11 +98,21 @@ namespace HotelManagment
             }
 
             Console.WriteLine("the minimum rate is {0}", min);
-        } 
+        }
 
-        public void findtheCheapestBestRatedHotel(DateTime bookingDate , DateTime checkoutDate)
-        {    Dictionary<string , ArrayList >listofHotel = new Dictionary<string, ArrayList> ();
-            ArrayList hotelratingAndCost = new ArrayList ();
+        public void findtheCheapestBestRatedHotel(DateTime bookingDate, DateTime checkoutDate)
+
+        {
+            Random random = new Random();
+            int desionMaking = random.Next(0, 2);
+            bool IsRewardedCustomer = false;
+            if (desionMaking != 0)
+            {
+                IsRewardedCustomer = true;
+            }
+
+            Dictionary<string, ArrayList> listofHotel = new Dictionary<string, ArrayList>();
+            ArrayList hotelratingAndCost = new ArrayList();
             TimeSpan difference = checkoutDate - bookingDate;
             int daysDifference = difference.Days;
 
@@ -122,19 +132,21 @@ namespace HotelManagment
             int sumOfratings = hotels.Values
             .Sum(innerDictionary => innerDictionary.ContainsKey("ratings") ? innerDictionary["ratings"] : 0);
 
-            int averageRating  = sumOfratings / hotels.Count;
-            int minRate =int.MaxValue;
+            int averageRating = sumOfratings / hotels.Count;
+            int minRate = int.MaxValue;
             int value = 0;
-            foreach(var hotel in hotels)
+            string regularOrRewardedWeekDay = IsRewardedCustomer ? "rewardedWeekdayRate" : "regularWeekDayRate";
+            string regularOrRewardedWeekEnd = IsRewardedCustomer ? "rewardedWeekEndRate" : "regularWeekEndRate";
+            foreach (var hotel in hotels)
             {
                 if (hotel.Value["ratings"] == averageRating)
                 {
-                    value = hotel.Value["regularWeekDayRate"] * countWeekDay + hotel.Value["regularWeekEndRate"] * countWeekend;
+                    value = hotel.Value[regularOrRewardedWeekDay] * countWeekDay + hotel.Value[regularOrRewardedWeekEnd] * countWeekend;
                     if (minRate > value)
                     {
                         hotelratingAndCost.Add(hotel.Value["ratings"]);
                         hotelratingAndCost.Add((int)value);
-                        listofHotel.Add(hotel.Key ,hotelratingAndCost );
+                        listofHotel.Add(hotel.Key, hotelratingAndCost);
                     }
 
                 }
@@ -143,10 +155,10 @@ namespace HotelManagment
             foreach (var Pair in listofHotel)
             {
                 string Hotelname = Pair.Key;
-                int rate = (int )Pair.Value[0];
+                int rate = (int)Pair.Value[0];
                 int ratings = (int)Pair.Value[1];
 
-                Console.WriteLine($"Hotel Name : {Hotelname}, rating : {ratings}, TotalRate: {rate}");
+                Console.WriteLine($"Hotel Name : {Hotelname}, rating : {rate}, TotalRate: {ratings}");
             }
 
 

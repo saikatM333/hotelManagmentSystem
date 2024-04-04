@@ -8,20 +8,21 @@ namespace HotelManagment
 {
     internal class Hotel
     {
-      
-       //public  Dictionary<string, Dictionary<string, int>> hotel = new Dictionary<string, Dictionary<string, int>>();
+
+        //public  Dictionary<string, Dictionary<string, int>> hotel = new Dictionary<string, Dictionary<string, int>>();
 
         public Dictionary<string, int> hotelDetails = new Dictionary<string, int>()
         {
-            
+
         };
-        public Hotel( string hotelname ,int rating ,  int regularWeekDayRate , int regularWeekEndRate , int rewardedWeekdayRate, int rewardedWeekEndRate) {
-            hotelDetails.Add("ratings" , rating );
-            hotelDetails.Add("regularWeekDayRate" , regularWeekEndRate);
-            hotelDetails.Add("regularWeekEndRate" , regularWeekEndRate );
+        public Hotel(string hotelname, int rating, int regularWeekDayRate, int regularWeekEndRate, int rewardedWeekdayRate, int rewardedWeekEndRate)
+        {
+            hotelDetails.Add("ratings", rating);
+            hotelDetails.Add("regularWeekDayRate", regularWeekEndRate);
+            hotelDetails.Add("regularWeekEndRate", regularWeekEndRate);
             hotelDetails.Add("rewardedWeekdayRate", rewardedWeekdayRate);
-            hotelDetails.Add("rewardedWeekEndRat", rewardedWeekEndRate);
-           }
+            hotelDetails.Add("rewardedWeekEndRate", rewardedWeekEndRate);
+        }
 
 
     }

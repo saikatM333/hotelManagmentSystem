@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -14,14 +15,24 @@ namespace HotelManagment
     {
         public static Dictionary<string, Dictionary<string, int>> hotels = new Dictionary<string, Dictionary<string, int>>();
 
-
+        
         public void AddHotel()
         {
 
+            string pattern = "[0-5]{1}";
+            Regex regex = new Regex(pattern);
 
+            string pattern1= "[a-z A-Z]{3, 14}";
+            Regex regex1 = new Regex(pattern1);
 
             Console.WriteLine("add the hotel name in the hotel reservation system to add the hotel");
             string HotelName = Console.ReadLine();
+            if (!regex.IsMatch(HotelName))
+            {
+
+                throw new CustomException("enter some nice hotel name ");
+
+            }
 
             Console.WriteLine("provide the regular WeekDay rates for the hotel ");
             int regularWeekDayRate = Convert.ToInt32(Console.ReadLine());
@@ -30,6 +41,12 @@ namespace HotelManagment
 
             Console.WriteLine("provide the rating for hotel");
             int ratings = Convert.ToInt32(Console.ReadLine());
+            string rate = Convert.ToString(ratings);
+            if (!regex.IsMatch(rate)) {
+
+                throw new CustomException("rating must be  0 to 5 ");
+            
+            }
 
             Console.WriteLine("provide the rewarded weekday rate for the hotel ");
             int rewardedWeekDayRate = Convert.ToInt32(Console.ReadLine());

@@ -14,31 +14,28 @@ public class Program
         string pattren = "[0-9]{4}-[0-9]{2}-[0-9]{2}";
         Regex regex = new Regex(pattren);
 
-
         while (true)
         {
-
             Console.WriteLine("enter  0 for adding the hotel\nenter 1 for finding the cheap hotel rates\n enter 2 for finding the chepeast best rated hotel ");
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
-           
-                switch (choice)
+            switch (choice)
 
             {
-               
+
                 case 0:
                     hotelCollections.AddHotel();
                     break;
 
                 case 1:
                     Console.WriteLine("enter the first Date for booking ");
-                    
+
                     DateTime startingDate = Convert.ToDateTime(Console.ReadLine());
                     string stringDate = Convert.ToString(startingDate);
                     if (regex.IsMatch(stringDate))
                     {
-                         throw new  CustomException("please enter the correct date ");
+                        throw new CustomException("please enter the correct date ");
                     }
                     Console.WriteLine("enter the last Date for booking ");
                     DateTime endingDate = Convert.ToDateTime(Console.ReadLine());
@@ -53,7 +50,6 @@ public class Program
                         throw new CustomException("please enter the checkout date greter than booking date  ");
                     }
                     hotelCollections.findtheCheapestRates(startingDate, endingDate); break;
-                       
 
                 case 2:
                     Console.WriteLine("enter the first Date for booking ");
@@ -76,6 +72,7 @@ public class Program
                         throw new CustomException("please enter the checkout date greter than booking date  ");
                     }
                     hotelCollections.findtheCheapestBestRatedHotel(startingDate1, endingDate1); break;
+
                 case 3:
                     Console.WriteLine("enter the first Date for booking ");
                     DateTime startingDate2 = Convert.ToDateTime(Console.ReadLine());
@@ -92,17 +89,12 @@ public class Program
                         throw new CustomException("please enter the correct date ");
                     }
 
-                    if (endingDate2 <startingDate2)
+                    if (endingDate2 < startingDate2)
                     {
                         throw new CustomException("please enter the checkout date greter than booking date  ");
                     }
                     hotelCollections.findthebestRatedHotel(startingDate2, endingDate2); break;
-
-                }   
-
-             
+            }
         }
-
-
     }
 }

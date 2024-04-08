@@ -14,24 +14,19 @@ namespace HotelManagment
     public class HotelCollections
     {
         public static Dictionary<string, Dictionary<string, int>> hotels = new Dictionary<string, Dictionary<string, int>>();
-
-        
         public void AddHotel()
         {
-
             string pattern = "[0-5]{1}";
             Regex regex = new Regex(pattern);
 
-            string pattern1= "[a-z A-Z]{3, 14}";
+            string pattern1 = "[a-z A-Z]{3, 14}";
             Regex regex1 = new Regex(pattern1);
 
             Console.WriteLine("add the hotel name in the hotel reservation system to add the hotel");
             string HotelName = Console.ReadLine();
             if (!regex.IsMatch(HotelName))
             {
-
                 throw new CustomException("enter some nice hotel name ");
-
             }
 
             Console.WriteLine("provide the regular WeekDay rates for the hotel ");
@@ -42,10 +37,9 @@ namespace HotelManagment
             Console.WriteLine("provide the rating for hotel");
             int ratings = Convert.ToInt32(Console.ReadLine());
             string rate = Convert.ToString(ratings);
-            if (!regex.IsMatch(rate)) {
-
+            if (!regex.IsMatch(rate))
+            {
                 throw new CustomException("rating must be  0 to 5 ");
-            
             }
 
             Console.WriteLine("provide the rewarded weekday rate for the hotel ");
@@ -54,13 +48,7 @@ namespace HotelManagment
             Console.WriteLine("provide the rewarded weekend  rate for the hotel ");
             int rewardedWeekEndRate = Convert.ToInt32(Console.ReadLine());
 
-
-
-
-
-
             hotels.Add(HotelName, new Hotel(HotelName, ratings, regularWeekDayRate, regularWeekEndRate, rewardedWeekDayRate, rewardedWeekEndRate).hotelDetails);
-
 
         }
 
@@ -165,7 +153,6 @@ namespace HotelManagment
                         hotelratingAndCost.Add((int)value);
                         listofHotel.Add(hotel.Key, hotelratingAndCost);
                     }
-
                 }
             }
 
@@ -177,8 +164,6 @@ namespace HotelManagment
 
                 Console.WriteLine($"Hotel Name : {Hotelname}, rating : {rate}, TotalRate: {ratings}");
             }
-
-
         }
 
         public void findthebestRatedHotel(DateTime bookingDate, DateTime checkoutDate)
@@ -215,9 +200,6 @@ namespace HotelManagment
                 }
 
             }
-
-
-
             foreach (var Pair in listofMaxratedHotel)
             {
                 string Hotelname = Pair.Key;
@@ -225,12 +207,6 @@ namespace HotelManagment
 
                 Console.WriteLine($"Hotel Name : {Hotelname}, TotalRate: {value}");
             }
-
         }
-
-
     }
-
-
-
 }

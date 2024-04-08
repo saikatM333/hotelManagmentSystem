@@ -181,10 +181,7 @@ namespace HotelManagment
                     countWeekend++;
                 }
             }
-
             int countWeekDay = daysDifference - countWeekend;
-
-
             var sortedNestedDictionary = hotels.OrderByDescending(kv => kv.Value["ratings"]);
             var maxratedHotel = sortedNestedDictionary.First();
             int maxrating = maxratedHotel.Value["ratings"];
